@@ -7,9 +7,8 @@ public class Note {
     public String data;
     public int id;
 
-    public Note(int id, String data) {
+    public Note(String data) {
         this.data = data;
-        this.id = id;
     }
 
     public String toString() {
