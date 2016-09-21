@@ -12,16 +12,18 @@ import java.util.Scanner;
  * Created by Nir on 9/20/2016.
  */
 public class StorageManager implements NotesService {
-    final String DELIMITER = "//...NirNotes...//";
-    final String FILE_NAME = "NirNotes.txt";
+    private static final String DELIMITER = "//...NirNotes...//";
+    private static final String FILE_NAME = "NirNotes.txt";
 
-    Context context;
-    boolean updated = false;
-    ArrayList<Note> notes;
+    private Context context;
+    private boolean updated;
+    private ArrayList<Note> notes;
 
 
     public StorageManager(Context context) {
         this.context = context;
+        this.notes = new ArrayList<>();
+        this.updated = false;
     }
 
     @Override
@@ -35,20 +37,25 @@ public class StorageManager implements NotesService {
         fetchNotes();
     }
 
+
+    // Maybe change to iterator or something..
     @Override
     public ArrayList<Note> getNotes() {
-        return null;
+        return notes;
     }
+
 
     @Override
     public Note createNote() {
         updated = true;
-        return null;
+        Note n = new Note("");
+        notes.add(n);
+        return n;
     }
 
     public void fetchNotes() {
         notes = new ArrayList<>();
-        File f = new File(context.getFilesDir(), FILE_NAME;
+        File f = new File(context.getFilesDir(), FILE_NAME);
         try {
             f.createNewFile();
 

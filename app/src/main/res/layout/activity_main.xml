@@ -38,5 +38,7 @@
         android:verticalSpacing="10dp"
         android:horizontalSpacing="10dp"/>
 
+    <!-- Add a clear notes button -->
+
 
 </RelativeLayout>
